@@ -1,11 +1,24 @@
-import { NativeBaseProvider, Box, Text } from 'native-base';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+
+import { NativeBaseProvider } from 'native-base';
+import AppBlockerScreen from "./screens/AppBlockerScreen";
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-<NativeBaseProvider>
-      <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
-        <Text>Open up App.js to start working on your app!</Text>
-      </Box>
-    </NativeBaseProvider>
+    <NavigationContainer>
+        <NativeBaseProvider>
+
+      <Stack.Navigator>
+
+          <Stack.Screen name="AppBlockerScreen" component={AppBlockerScreen} />
+      </Stack.Navigator>
+      </NativeBaseProvider>
+
+    </NavigationContainer>
+
   );
 }
